@@ -25,6 +25,6 @@ cargo build --release
 ## build modes
 
 honeycomb has different build modes for various purposes:
-you can find all of them by checking out the [cargo configuration](https://github.com/builtbyvys/honeycomb/blob/main/Cargo.toml#L44-L51)!
+you can find all of them by checking out the [cargo configuration](https://github.com/builtbyvys/honeycomb/blob/main/Cargo.toml#L45-48)!
 
 enjoy exploring and experimenting with honeycomb!
