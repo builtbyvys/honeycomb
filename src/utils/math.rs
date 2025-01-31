@@ -37,8 +37,8 @@ impl Vec3f {
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Matrix(pub Mat4);
 
-impl Matrix4 {
-    pub fn perspective(fov: u32, aspect: f32, near: f32, far: f32) -> Self {
+impl Matrix {
+    pub fn perspective(fov: f32, aspect: f32, near: f32, far: f32) -> Self {
         Self(Mat4::perspective_rh(fov, aspect, near, far))
     }
 
@@ -52,7 +52,7 @@ impl Matrix4 {
 }
 
 // convert world pos to normalized device coords
-pub fn project_to_ndc(pos: Vec3f, view_proj: &Matrix4) -> Vec3f {
+pub fn project_to_ndc(pos: Vec3f, view_proj: &Matrix) -> Vec3f {
     let pos = view_proj.0.project_point3(pos.to_glam());
     Vec3f::from_glam(pos)
 }
