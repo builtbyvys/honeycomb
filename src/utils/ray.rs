@@ -1,5 +1,5 @@
 use crate::world::Chunk;
-use crate::utils::math::{Vec3f, Matrix4};
+use crate::utils::math::{Vec3f, Matrix};
 use egui::Direction;
 use glam::Vec3;
 use wgpu::naga::back::RayIntersectionType;
@@ -18,7 +18,7 @@ impl Ray {
             origin,
             direction: direction.normalize(),
             distance: 1000.0,
-}
+        }
     }
 
     // get the point alongside ray at distance "t"
@@ -49,7 +49,7 @@ impl Ray {
                 voxel_pos.0 as i32,
                 voxel_pos.1 as i32,
                 voxel_pos.2 as i32,
-             ) {
+            ) {
                 if block != 0 {
                     return Some(RaycastHit {
                         position: self.at(t),
@@ -72,7 +72,7 @@ impl Ray {
     }
 
     // helper functions
-        fn calc_t_max(origin: Vec3f, dir: Vec3f, step: Vec3f) -> Vec3f {
+    fn calc_t_max(origin: Vec3f, dir: Vec3f, step: Vec3f) -> Vec3f {
         Vec3f(
             (step.0 - (origin.0 % 1.0)) / dir.0,
             (step.1 - (origin.1 % 1.0)) / dir.1,
@@ -121,7 +121,7 @@ pub struct RaycastHit {
     pub position: Vec3f,
     pub normal: Vec3f,
     pub distance: f32,
-    pub voxel: u8
+    pub voxel: u8,
 }
 
 pub type VoxelRayResult = Option<RaycastHit>;
