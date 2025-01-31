@@ -43,9 +43,6 @@ indicatif = "0.17.11"
 
 [features]
 default = ["basic-renderer", "egui-debug"]
-basic-renderer = []
-ray-marcher = []
-gpu-ray-marcher = ["wgpu/compute"]
 egui-debug = ["dep:egui", "dep:eframe"]
 alternative-math = ["dep:cgmath"]
 advanced-noise = ["dep:fastnoise-lite"]
